@@ -1,5 +1,5 @@
 // docs
-import './_.prototypes.js';
+import './prototypes.js';
 
 /** default font list
  * @type {BaseFont[]}
