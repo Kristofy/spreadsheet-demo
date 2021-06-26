@@ -1,0 +1,109 @@
+{
+  "_from": "x-data-spreadsheet",
+  "type": "module",
+  "_id": "x-data-spreadsheet@1.1.9",
+  "_inBundle": false,
+  "_integrity": "sha512-wk7knDBYdHjtWiHUVQryZMy00dsGNCF+6wMb5ykwEFcAtBYkYZakJCOCHpEo8onC0Lb/q2gIynWpbQxA4qakyg==",
+  "_location": "/x-data-spreadsheet",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "x-data-spreadsheet",
+    "name": "x-data-spreadsheet",
+    "escapedName": "x-data-spreadsheet",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/x-data-spreadsheet/-/x-data-spreadsheet-1.1.9.tgz",
+  "_shasum": "b0275a2247f6ae26cdc56b641e26ac846659e615",
+  "_spec": "x-data-spreadsheet",
+  "_where": "C:\\CourseAutomation",
+  "author": {
+    "name": "myliang",
+    "email": "liangyuliang0335@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/myliang/x-spreadsheet/issues"
+  },
+  "bundleDependencies": false,
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/x-spreadsheet"
+  },
+  "dependencies": {
+    "opencollective": "^1.0.3",
+    "opencollective-postinstall": "^2.0.2"
+  },
+  "deprecated": false,
+  "description": "a javascript xpreadsheet",
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/register": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^0.1.19",
+    "codecov": "^3.3.0",
+    "css-loader": "^1.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.4.4",
+    "mocha": "^5.2.0",
+    "nyc": "^13.3.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.10.2",
+    "webpack-merge": "^4.1.4"
+  },
+  "files": [
+    "assets",
+    "dist",
+    "src"
+  ],
+  "homepage": "https://github.com/myliang/x-spreadsheet#readme",
+  "keywords": [
+    "javascript",
+    "spreadsheet",
+    "canvas"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "name": "x-data-spreadsheet",
+  "nyc": {
+    "all": true,
+    "include": [
+      "src/core/*.js",
+      "src/locale/locale.js"
+    ],
+    "exclude": [
+      "**/*.spec.js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myliang/x-spreadsheet.git"
+  },
+  "scripts": {
+    "build": "webpack --config build/webpack.prod.js",
+    "build-locale": "webpack --config build/webpack.locale.js",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov -t 31ecdb12-8ecb-46f7-a486-65c2516307dd",
+    "dev": "webpack-dev-server --open --config build/webpack.dev.js",
+    "lint": "./node_modules/eslint/bin/eslint.js src",
+    "postinstall": "opencollective-postinstall",
+    "test": "nyc ./node_modules/mocha/bin/mocha --require @babel/register --recursive test"
+  },
+  "types": "src/index.d.ts",
+  "version": "1.1.9"
+}
