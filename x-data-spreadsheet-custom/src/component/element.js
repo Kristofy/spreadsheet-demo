@@ -37,6 +37,7 @@ class Element {
         }
         if (k === 'stop') {
           evt.stopPropagation();
+          evt.preventDefault();
         }
       }
     });
