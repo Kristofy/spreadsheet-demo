@@ -105,12 +105,18 @@ class Rows {
   }
 
   setCellText(ri, ci, text) {
+    console.error("can't edit in read only mode!");
+    return;
     const cell = this.getCellOrNew(ri, ci);
     if (cell.editable !== false) cell.text = text;
   }
 
+  setCellTextYX(y, x, text) {
+    this.getCellOrNew(y, x).text = text;
+  }
+
   // what: all | format | text
-  copyPaste(srcCellRange, dstCellRange, what, autofill = false, cb = () => {}) {
+  copyPaste(srcCellRange, dstCellRange, what, autofill = false, cb = () => { }) {
     const {
       sri, sci, eri, eci,
     } = srcCellRange;

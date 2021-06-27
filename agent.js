@@ -11,7 +11,7 @@ class Agent {
 
   constructor() {
     const options = {
-      mode: 'edit', // edit | read
+      mode: 'read', // edit | read
       showToolbar: false, // toolbar
       showGrid: true, // separator lines between cells
       showContextmenu: true, // right click
