@@ -16,8 +16,8 @@ class Agent {
       showGrid: true, // separator lines between cells
       showContextmenu: true, // right click
       view: {
-        height: () => document.documentElement.clientHeight*0.9,
-        width: () => document.documentElement.clientWidth*0.9,
+        height: () => document.documentElement.clientHeight * 0.9,
+        width: () => document.documentElement.clientWidth * 0.9,
       },
       row: {
         len: 10000, // could be dynamic based on the SQL query
@@ -73,16 +73,16 @@ class Agent {
   // merged in it's unchanged intervall, and this cell merged in the remaning intervall
   // like : | some text         |    =>    | some text   | new text  |
   writeInHorizontalRow(x, y, text) {
-    const range = this.sheet.getCellRange(y,x);
-    if(range.eri !== range.sri)  return; // isn't a single row merged
-    
-    if(range.sci === x){ // if whole merged cell is rewritten & also includes single cell
-      this.write(x,y, text);
-    }else{ // if has to be divided
-      this.unmerge(x,y);
-      this.merge(range.sci, range.sri, x-1, range.eri);
+    const range = this.sheet.getCellRange(y, x);
+    if (range.eri !== range.sri) return; // isn't a single row merged
+
+    if (range.sci === x) { // if whole merged cell is rewritten & also includes single cell
+      this.write(x, y, text);
+    } else { // if has to be divided
+      this.unmerge(x, y);
+      this.merge(range.sci, range.sri, x - 1, range.eri);
       this.merge(x, range.sri, range.eci, range.eri);
-      this.write(x,y, text);
+      this.write(x, y, text);
     }
   }
 
@@ -91,13 +91,18 @@ class Agent {
     this.reRender();
   }
 
-  unmerge(x, y){
-    this.sheet.unmergeXY(x,y);
+  unmerge(x, y) {
+    this.sheet.unmergeXY(x, y);
   }
 
   getCell(x, y) {
     let range = this.sheet.getCellRange(y, x);
     return this.sheet.getCellXY(range.sci, range.sri);
+  }
+
+  setWidth(y, width) {
+    this.sheet.setColWidth(y, width);
+    this.reRender();
   }
 
   reRender() { this.spreadsheet.reRender() }
@@ -109,6 +114,7 @@ class Agent {
   static write = Agent.instance.write.bind(Agent.instance);
   static writeInHorizontalRow = Agent.instance.writeInHorizontalRow.bind(Agent.instance);
   static merge = Agent.instance.merge.bind(Agent.instance);
+  static setWidth = Agent.instance.setWidth.bind(Agent.instance);
 }
 
 

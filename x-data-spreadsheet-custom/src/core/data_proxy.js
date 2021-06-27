@@ -1089,6 +1089,10 @@ export default class DataProxy {
     });
   }
 
+  setColWidth(ci, width) {
+    this.cols.setWidth(ci, width);
+  }
+
   viewHeight() {
     const { view, showToolbar, showBottomBar } = this.settings;
     let h = view.height();
